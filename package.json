@@ -9,13 +9,9 @@
     "test:watch": "jest --watchAll",
     "build": "npm run test && rimraf ./build && gulp",
     "prepare": "npm run build",
-    "publish:server": "npm publish --registry https://verdaccio.borsan.es"
+    "publish:server": "npm publish"
   },
-  "keywords": [
-    "TS",
-    "Javascript",
-    "npm"
-  ],
+  "keywords": ["TS", "Javascript", "npm"],
   "author": "Alejandro Frías",
   "license": "MIT",
   "devDependencies": {
@@ -46,14 +42,7 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "dependencies": {
     "node-sass": "^4.7.2",
