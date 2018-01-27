@@ -1,0 +1,63 @@
+{
+  "name": "cee-render",
+  "version": "0.0.1",
+  "description": "Librería renderizado del CEE",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "build": "npm run test && rimraf ./build && gulp",
+    "prepare": "npm run build",
+    "publish:server": "npm publish --registry https://verdaccio.borsan.es"
+  },
+  "keywords": [
+    "TS",
+    "Javascript",
+    "npm"
+  ],
+  "author": "Alejandro Frías",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^21.1.9",
+    "@types/lodash": "^4.14.92",
+    "@types/node": "^9.4.0",
+    "@types/node-sass": "^3.10.32",
+    "@types/puppeteer": "^1.0.0",
+    "@types/xml-js": "^1.0.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-plugin-transform-remove-console": "^6.8.5",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-minify": "^0.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-sourcemaps": "^2.6.2",
+    "gulp-typescript": "^3.2.3",
+    "jest": "^22.0.4",
+    "lodash": "^4.17.4",
+    "merge2": "^1.2.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.0.0",
+    "typescript": "^2.6.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "dependencies": {
+    "node-sass": "^4.7.2",
+    "puppeteer": "^1.0.0",
+    "xml-js": "^1.6.2"
+  }
+}

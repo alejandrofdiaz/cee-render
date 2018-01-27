@@ -1,0 +1,12 @@
+{
+    "rules": {
+        "no-console": {
+            "severity": "warning"
+        },
+        "no-unused-variable": [true],
+        "no-unused-expression": [true],
+        "quotemark": {
+            "options": ["single", "avoid-escape"]
+        }
+    }
+}
