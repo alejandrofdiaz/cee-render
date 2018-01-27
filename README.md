@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-npm i --save borsan-XXXXX
+npm i --save cee-render
 ```
 
 ## Scripts
