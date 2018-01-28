@@ -93,23 +93,43 @@ function parseDataFromSummary(xml: string) {
         .find(item => item.name === 'Consumo')
         .elements.find(item => item.name === 'EnergiaPrimariaNoRenovable')
         .elements.find(item => item.name === 'Global').elements[0].text;
+
+      summary.consumoEnergia = String(Math.floor(Number(summary.consumoEnergia)));
     } catch (err) {
       console.log('error consumoEnergia');
+    }
+
+    try {
+      summary.calificacionConsumoEnergia = _xmlDataTree.elements
+        .find(item => item.name === 'Calificacion')
+        .elements.find(item => item.name === 'EnergiaPrimariaNoRenovable')
+        .elements.find(item => item.name === 'Global').elements[0].text;
+    } catch (err) {
+      console.log('error letraEnergia');
     }
 
     try {
       summary.emisionesCO2 = _xmlDataTree.elements
         .find(item => item.name === 'EmisionesCO2')
         .elements.find(item => item.name === 'Global').elements[0].text;
+      summary.emisionesCO2 = String(Math.floor(Number(summary.emisionesCO2)));
     } catch (err) {
       console.log('error emisionesCO2');
     }
 
+    try {
+      summary.calificacionEmisiones = _xmlDataTree.elements
+        .find(item => item.name === 'Calificacion')
+        .elements.find(item => item.name === 'EmisionesCO2')
+        .elements.find(item => item.name === 'Global').elements[0].text;
+    } catch (err) {
+      console.log('error letra consumo energia');
+    }
+
     summary.generateResumen();
-    return summary;
-  } else {
-    return null;
+    summary.setCalificacionSelectableValues();
   }
+  return summary;
 }
 
 export default parseDataFromSummary;
