@@ -16,7 +16,7 @@ const getHtml = () =>
  */
 function fillWithData(summary: SummaryCertificado) {
   const rawContent = getHtml();
-  return renderString(rawContent, summary);
+  return removeChartResultEmptyTags(removeSpareBraces(renderString(rawContent, summary)));
 }
 
 /**
@@ -30,6 +30,7 @@ function renderString(stringTemplate: string, object: any) {
     (prev, key) => prev.replace(`{{${key}}}`, object[key]),
     stringTemplate
   );
+
   return finalContent;
 }
 
@@ -40,8 +41,25 @@ function renderString(stringTemplate: string, object: any) {
  * @returns {string}
  */
 function removeSpareBraces(stringTemplate: string) {
-  const bracesRegex = /{{\*}}/g;
-  console.log(stringTemplate.replace(bracesRegex, ''));
+  const bracesRegex = /\{{([A-z0-9]+)\}}/g;
+  return stringTemplate.replace(bracesRegex, '');
 }
 
-export { renderString, fillWithData, removeSpareBraces };
+function removeChartResultEmptyTags(stringTemplate: string) {
+  const element = '<span class="ee__chart__result"></span>';
+  return removeEmptyTags(stringTemplate, element);
+}
+
+function removeEmptyTags(stringTemplate: string, tagTemplate: string) {
+  const regex = new RegExp(tagTemplate, 'g');
+  return stringTemplate.replace(regex, '');
+}
+
+export {
+  renderString,
+  fillWithData,
+  removeSpareBraces,
+  getHtml,
+  removeEmptyTags,
+  removeChartResultEmptyTags
+};

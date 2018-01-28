@@ -1,4 +1,4 @@
-import { renderString, removeSpareBraces } from '../cee-template.utils';
+import { renderString, removeSpareBraces, getHtml, removeEmptyTags } from '../cee-template.utils';
 
 describe('cee-template util test', () => {
   test('Default replacing', () => {
@@ -13,5 +13,15 @@ describe('cee-template util test', () => {
   test('Remove Missing Attributes', () => {
     const rawHtml = 'this is a {{test}}';
     expect(removeSpareBraces(rawHtml)).toBe('this is a ');
+  });
+
+  test('Load Html Template', () => {
+    expect(!!getHtml()).toBeTruthy();
+  });
+
+  test('Remove empty tags', () => {
+    const stringTest = 'alalalala';
+    const resultTest = 'llll';
+    expect(removeEmptyTags(stringTest, 'a')).toBe(resultTest);
   });
 });
