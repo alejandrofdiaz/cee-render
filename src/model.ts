@@ -1,39 +1,37 @@
 class SummaryCertificado {
   anio: string;
-  normativa: string;
-  referenciaCatastral: string;
-  tipoEdificio: string;
-  direccion: string;
-  municipio: string;
-  cp: string;
+  calificacionEmisiones: string;
+  calificacionConsumoEnergia: string;
   comunidadAutonoma: string;
   consumoEnergia: string;
-  emisionesCO2: string;
-  registro: string;
-  fecha: string;
+  cp: string;
   datosEdificio: string;
-
+  direccion: string;
+  emisionesCO2: string;
+  fecha: string;
+  municipio: string;
+  normativa: string;
+  referenciaCatastral: string;
+  registro: string;
+  tipoEdificio: string;
   constructor() {
     this.anio = '';
-    this.normativa = '';
-    this.referenciaCatastral = ''; //referencia catastral
-    this.tipoEdificio = '';
-    this.direccion = '';
-    this.municipio = '';
-    this.cp = '';
+    this.calificacionEmisiones = '';
+    this.calificacionConsumoEnergia = '';
     this.comunidadAutonoma = '';
     this.consumoEnergia = '';
-    this.emisionesCO2 = '';
-    this.registro = '';
-    this.fecha = '';
-    // this.resumen = '';
+    this.cp = '';
     this.datosEdificio = '';
+    this.direccion = '';
+    this.emisionesCO2 = '';
+    this.fecha = '';
+    this.municipio = '';
+    this.normativa = '';
+    this.referenciaCatastral = ''; //referencia catastral
+    this.registro = '';
+    this.tipoEdificio = '';
   }
 
-  /**
-   * @param {string} value
-   * @returns {void}
-   */
   setRegistro(value: string) {
     this.registro = value;
   }
@@ -43,6 +41,15 @@ class SummaryCertificado {
 		  Construccion - ${this.anio}
 		  ${this.normativa}
 		  `;
+  }
+
+  setCalificacionSelectableValues() {
+    this.calificacionEmisiones = this.calificacionEmisiones.toUpperCase();
+    this.calificacionConsumoEnergia = this.calificacionConsumoEnergia.toUpperCase();
+    const _idEmisiones = `emisionesCO2${this.calificacionEmisiones}`;
+    const _idConsumo = `consumoEnergia${this.calificacionConsumoEnergia}`;
+    this[_idEmisiones] = this.emisionesCO2;
+    this[_idConsumo] = this.consumoEnergia;
   }
 }
 
