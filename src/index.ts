@@ -12,8 +12,13 @@ import render from './render';
  * @param {string} numReferencia
  * @returns {string} path where to get the pdf built to send it to user
  */
-async function getPDFFromXml(absolutePath, numReferencia) {
-  const xml = fs.readFileSync(absolutePath, { encoding: 'utf8' });
+async function getPDFFromXml(absolutePath: string, numReferencia: string) {
+  let xml;
+  try {
+    xml = fs.readFileSync(absolutePath, { encoding: 'utf8' });
+  } catch (err) {
+    throw err;
+  }
   const summary = parserFromXml(xml);
   summary.setRegistro(numReferencia);
   const htmlString = fillWithData(summary);
