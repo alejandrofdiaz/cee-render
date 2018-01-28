@@ -15,4 +15,4 @@ function renderStylesheet() {
   return result.css.toString();
 }
 
-export default renderStylesheet;
+export { renderStylesheet };

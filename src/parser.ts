@@ -1,51 +1,5 @@
 import { xml2js } from 'xml-js';
-
-class SummaryCertificado {
-  anio: string;
-  normativa: string;
-  referenciaCatastral: string;
-  tipoEdificio: string;
-  direccion: string;
-  municipio: string;
-  cp: string;
-  comunidadAutonoma: string;
-  consumoEnergia: string;
-  emisionesCO2: string;
-  registro: string;
-  fecha: string;
-  datosEdificio: string;
-  constructor() {
-    this.anio = '';
-    this.normativa = '';
-    this.referenciaCatastral = ''; //referencia catastral
-    this.tipoEdificio = '';
-    this.direccion = '';
-    this.municipio = '';
-    this.cp = '';
-    this.comunidadAutonoma = '';
-    this.consumoEnergia = '';
-    this.emisionesCO2 = '';
-    this.registro = '';
-    this.fecha = '';
-    // this.resumen = '';
-    this.datosEdificio = '';
-  }
-
-  /**
-   * @param {string} value
-   * @returns {void}
-   */
-  setRegistro(value) {
-    this.registro = value;
-  }
-
-  generateResumen() {
-    this.datosEdificio = `
-		Construccion - ${this.anio}
-		${this.normativa}
-		`;
-  }
-}
+import { SummaryCertificado } from './model';
 
 /**
  * Takes xml in string format and retrieves a parsed SummaryCertificado class like
@@ -55,12 +9,13 @@ class SummaryCertificado {
  * @returns {SummaryCertificado}
  */
 function parseDataFromSummary(xml: string) {
-  const _xml = xml2js(xml).elements[0];
+  let _xmlFullTree = xml2js(xml);
+  const _xmlDataTree = _xmlFullTree.elements ? _xmlFullTree.elements[0] : null;
   const summary = new SummaryCertificado();
 
-  if (_xml.name === 'DatosEnergeticosDelEdificio') {
+  if (_xmlDataTree && _xmlDataTree.name === 'DatosEnergeticosDelEdificio') {
     try {
-      summary.anio = _xml.elements
+      summary.anio = _xmlDataTree.elements
         .find(item => item.name === 'IdentificacionEdificio')
         .elements.find(item => item.name === 'AnoConstruccion').elements[0].text;
     } catch (err) {
@@ -68,7 +23,7 @@ function parseDataFromSummary(xml: string) {
     }
 
     try {
-      summary.normativa = _xml.elements
+      summary.normativa = _xmlDataTree.elements
         .find(item => item.name === 'IdentificacionEdificio')
         .elements.find(item => item.name === 'NormativaVigente').elements[0].text;
     } catch (err) {
@@ -76,7 +31,7 @@ function parseDataFromSummary(xml: string) {
     }
 
     try {
-      summary.referenciaCatastral = _xml.elements
+      summary.referenciaCatastral = _xmlDataTree.elements
         .find(item => item.name === 'IdentificacionEdificio')
         .elements.find(item => item.name === 'ReferenciaCatastral').elements[0].text;
     } catch (err) {
@@ -84,7 +39,7 @@ function parseDataFromSummary(xml: string) {
     }
 
     try {
-      summary.tipoEdificio = _xml.elements
+      summary.tipoEdificio = _xmlDataTree.elements
         .find(item => item.name === 'IdentificacionEdificio')
         .elements.find(item => item.name === 'TipoDeEdificio').elements[0].text;
 
@@ -96,7 +51,7 @@ function parseDataFromSummary(xml: string) {
     }
 
     try {
-      summary.direccion = _xml.elements
+      summary.direccion = _xmlDataTree.elements
         .find(item => item.name === 'IdentificacionEdificio')
         .elements.find(item => item.name === 'Direccion').elements[0].text;
     } catch (err) {
@@ -104,7 +59,7 @@ function parseDataFromSummary(xml: string) {
     }
 
     try {
-      summary.municipio = _xml.elements
+      summary.municipio = _xmlDataTree.elements
         .find(item => item.name === 'IdentificacionEdificio')
         .elements.find(item => item.name === 'Municipio').elements[0].text;
     } catch (err) {
@@ -112,21 +67,21 @@ function parseDataFromSummary(xml: string) {
     }
 
     try {
-      summary.cp = _xml.elements
+      summary.cp = _xmlDataTree.elements
         .find(item => item.name === 'IdentificacionEdificio')
         .elements.find(item => item.name === 'CodigoPostal').elements[0].text;
     } catch (err) {
       console.log('error cp');
     }
     try {
-      summary.comunidadAutonoma = _xml.elements
+      summary.comunidadAutonoma = _xmlDataTree.elements
         .find(item => item.name === 'IdentificacionEdificio')
         .elements.find(item => item.name === 'ComunidadAutonoma').elements[0].text;
     } catch (err) {
       console.log('error comunidadAutonoma');
     }
     try {
-      summary.fecha = _xml.elements
+      summary.fecha = _xmlDataTree.elements
         .find(item => item.name === 'DatosDelCertificador')
         .elements.find(item => item.name === 'Fecha').elements[0].text;
     } catch (err) {
@@ -134,7 +89,7 @@ function parseDataFromSummary(xml: string) {
     }
 
     try {
-      summary.consumoEnergia = _xml.elements
+      summary.consumoEnergia = _xmlDataTree.elements
         .find(item => item.name === 'Consumo')
         .elements.find(item => item.name === 'EnergiaPrimariaNoRenovable')
         .elements.find(item => item.name === 'Global').elements[0].text;
@@ -143,7 +98,7 @@ function parseDataFromSummary(xml: string) {
     }
 
     try {
-      summary.emisionesCO2 = _xml.elements
+      summary.emisionesCO2 = _xmlDataTree.elements
         .find(item => item.name === 'EmisionesCO2')
         .elements.find(item => item.name === 'Global').elements[0].text;
     } catch (err) {

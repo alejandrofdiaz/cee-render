@@ -1,12 +1,24 @@
-import { isNumber } from 'lodash';
+import * as fs from 'fs';
+import parserFromXml from './parser';
+import { renderStylesheet } from './style/stylesheet.utils';
+import { fillWithData } from './template/cee-template.utils';
+import render from './render';
 
-function Suma(v1: number, v2: number) {
-    if (isNumber(v1) && isNumber(v2)) {
-        return v1 + v2;
-    }
-    else {
-        return 0
-    }
+/**
+ * Method that build PDF retrieved to user from
+ * data in a XML
+ *
+ * @param {string} absolutePath
+ * @param {string} numReferencia
+ * @returns {string} path where to get the pdf built to send it to user
+ */
+async function getPDFFromXml(absolutePath, numReferencia) {
+  const xml = fs.readFileSync(absolutePath, { encoding: 'utf8' });
+  const summary = parserFromXml(xml);
+  summary.setRegistro(numReferencia);
+  const htmlString = fillWithData(summary);
+  const pdfFilePath = await render(htmlString, numReferencia, renderStylesheet());
+  return pdfFilePath;
 }
 
-export default Suma;
+export { getPDFFromXml };
