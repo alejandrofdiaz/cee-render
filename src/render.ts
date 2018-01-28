@@ -1,6 +1,6 @@
 import * as path from 'path';
+import * as fs from 'fs';
 import * as puppeteer from 'puppeteer';
-import renderStylesheet from './style/stylesheet.utils';
 
 const DEFAULT_BIN_PATH = 'temp';
 const CWDPath = process.cwd();
@@ -20,15 +20,20 @@ async function render(html: string, filename: string, stylesheet: string) {
   await page.setContent(html);
   await page.addStyleTag({ content: stylesheet });
 
-  const absolutePath = path.resolve(CWDPath, DEFAULT_BIN_PATH, filename, `${filename}.pdf`);
+  const _filename = new Buffer(`${filename},${new Date().toString()}`).toString('base64');
+  const pdfAbsolutePath = path.resolve(CWDPath, DEFAULT_BIN_PATH, `${_filename}.pdf`);
+  // const htmlAbsolutePath = path.resolve(CWDPath, DEFAULT_BIN_PATH, `${_filename}.html`);
   await page.pdf({
-    path: absolutePath,
+    path: pdfAbsolutePath,
     printBackground: true,
     format: 'A4'
   });
+
+  // fs.writeFileSync(htmlAbsolutePath, html);
+
   await browser.close();
 
-  return absolutePath;
+  return pdfAbsolutePath;
 }
 
 export default render;
