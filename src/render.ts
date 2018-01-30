@@ -1,5 +1,4 @@
 import * as path from 'path';
-import * as fs from 'fs';
 import * as puppeteer from 'puppeteer';
 
 const DEFAULT_BIN_PATH = 'temp';
