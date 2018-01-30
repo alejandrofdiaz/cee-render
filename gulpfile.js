@@ -5,7 +5,11 @@ const tsProject = ts.createProject('tsconfig.json', { declaration: true });
 const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('default', function() {
+gulp.task('assets', function() {
+  return gulp.src(['src/**/*.html', 'src/**/*.scss']).pipe(gulp.dest('build'));
+});
+
+gulp.task('ts', function() {
   const result = gulp.src(['src/**/*.ts', '!src/**/__tests__/*.ts']).pipe(tsProject());
 
   const resultJs = result.js
@@ -21,3 +25,5 @@ gulp.task('default', function() {
   const resultDts = result.dts;
   return merge([resultJs.pipe(gulp.dest('build')), resultDts.pipe(gulp.dest('build'))]);
 });
+
+gulp.task('default', ['ts', 'assets']);
