@@ -10,7 +10,7 @@ describe('Test index', () => {
   });
 
   test('Get pdf from xml test', async () => {
-    const xmlPath = path.resolve(dirname, 'bin', 'CALLERUIZ14.xml');
-    await expect(getPDFFromXml(xmlPath, '32131231')).toBeTruthy();
+    const xmlPath = path.resolve(dirname, 'bin', 'PLAZAIGLESIA9.xml');
+    await expect(getPDFFromXml(xmlPath, '251155-30/01/2018 22:44:31')).toBeTruthy();
   });
 });
