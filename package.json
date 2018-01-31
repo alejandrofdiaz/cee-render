@@ -6,6 +6,7 @@
   "types": "build/index.d.ts",
   "scripts": {
     "test": "jest",
+    "test:verbose": "jest --verbose",
     "test:watch": "jest --watchAll",
     "build": "npm run test && rimraf ./build && gulp",
     "prepare": "npm run build",
