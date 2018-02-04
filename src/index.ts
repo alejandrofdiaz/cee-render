@@ -20,12 +20,20 @@ async function getPDFFromXml(xmlPath: string, pdfDest: string, numReferencia: st
   } catch (err) {
     throw err;
   }
+  return await getPDFFromXmlString(xml, pdfDest, numReferencia);
+}
+
+async function getPDFFromXmlString(
+  xmlString: string,
+  pdfDest: string,
+  numReferencia: string
+): Promise<string> {
   if (!fs.existsSync(pdfDest)) throw new Error('Destination path does not exists');
-  const summary = parserFromXml(xml);
+  const summary = parserFromXml(xmlString);
   summary.setRegistro(numReferencia);
   const htmlString = fillWithData(summary);
   const pdfFilePath = await render(htmlString, numReferencia, renderStylesheet(), pdfDest);
   return pdfFilePath;
 }
 
-export { getPDFFromXml };
+export { getPDFFromXml, getPDFFromXmlString };
