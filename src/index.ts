@@ -23,6 +23,15 @@ async function getPDFFromXml(xmlPath: string, pdfDest: string, numReferencia: st
   return await getPDFFromXmlString(xml, pdfDest, numReferencia);
 }
 
+/**
+ * Method that build PDF retrieved to user from
+ * data in a string. All params are absolute paths.
+ *
+ * @param xmlString
+ * @param pdfDest
+ * @param numReferencia
+ * @returns {string} path where to get the pdf built to send it to user
+ */
 async function getPDFFromXmlString(
   xmlString: string,
   pdfDest: string,
