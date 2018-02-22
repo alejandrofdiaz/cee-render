@@ -19,6 +19,13 @@
   ],
   "author": "Alejandro Frías",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandrofdiaz/cee-render.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alejandrofdiaz/cee-render/issues"
+  },
   "devDependencies": {
     "@types/jest": "^21.1.9",
     "@types/lodash": "^4.14.92",
