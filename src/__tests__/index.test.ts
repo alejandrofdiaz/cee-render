@@ -20,6 +20,6 @@ describe('Test index', () => {
   });
 
   test('Destination path does not exists', async () => {
-    await expect(getPDFFromXml(xmlValidPath, destinationFakePath, 'test')).rejects.toThrow('Destination path does not exists');
+    await expect(getPDFFromXml(xmlValidPath, destinationFakePath, 'test')).rejects.toThrowError();
   });
 });
