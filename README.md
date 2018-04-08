@@ -1,4 +1,5 @@
 # Cee-render
+[![Build Status](https://travis-ci.org/alejandrofdiaz/cee-render.svg?branch=master)](https://travis-ci.org/alejandrofdiaz/cee-render)
 
 ## Description
 
