@@ -27,27 +27,27 @@
     "url": "https://github.com/alejandrofdiaz/cee-render/issues"
   },
   "devDependencies": {
-    "@types/jest": "^21.1.9",
-    "@types/lodash": "^4.14.92",
-    "@types/node": "^9.4.0",
+    "@types/jest": "^22.2.2",
+    "@types/lodash": "^4.14.106",
+    "@types/node": "^9.6.2",
     "@types/node-sass": "^3.10.32",
-    "@types/puppeteer": "^1.0.0",
+    "@types/puppeteer": "^1.2.1",
     "@types/xml-js": "^1.0.0",
     "babel-core": "^6.26.0",
     "babel-plugin-lodash": "^3.3.2",
-    "babel-plugin-transform-remove-console": "^6.8.5",
+    "babel-plugin-transform-remove-console": "^6.9.1",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-minify": "^0.2.0",
+    "babel-preset-minify": "^0.4.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0",
-    "gulp-sourcemaps": "^2.6.2",
-    "gulp-typescript": "^3.2.3",
-    "jest": "^22.0.4",
-    "lodash": "^4.17.4",
-    "merge2": "^1.2.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-typescript": "^4.0.2",
+    "jest": "^22.4.3",
+    "lodash": "^4.17.5",
+    "merge2": "^1.2.1",
     "rimraf": "^2.6.2",
-    "ts-jest": "^22.0.0",
-    "typescript": "^2.6.2"
+    "ts-jest": "^22.4.2",
+    "typescript": "^2.8.1"
   },
   "jest": {
     "transform": {
@@ -64,8 +64,8 @@
     ]
   },
   "dependencies": {
-    "node-sass": "^4.7.2",
-    "puppeteer": "^1.0.0",
+    "node-sass": "^4.8.3",
+    "puppeteer": "^1.2.0",
     "xml-js": "^1.6.2"
   }
 }
