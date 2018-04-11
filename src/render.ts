@@ -11,7 +11,7 @@ import * as puppeteer from 'puppeteer';
  * @returns {string} absolutePath
  */
 async function render(html: string, filename: string, stylesheet: string, destination: string) {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
   await page.emulateMedia('screen');
   await page.setContent(html);
