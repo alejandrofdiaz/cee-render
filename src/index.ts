@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import parserFromXml from './parser';
 import { renderStylesheet } from './style/stylesheet.utils';
 import { fillWithData } from './template/cee-template.utils';
-import render from './render';
+import render, { replaceStyle } from './render';
 
 /**
  * Method that build PDF retrieved to user from
@@ -45,4 +45,19 @@ async function getPDFFromXmlString(
   return pdfFilePath;
 }
 
-export { getPDFFromXml, getPDFFromXmlString };
+/**
+ * @description Renders HTML from xml data
+ * @param xmlString
+ * @param numReferencia
+ * @returns {string} Html rendered with style
+ */
+function getHtmlFromXmlString(xmlString: string, numReferencia: string): string {
+  const summary = parserFromXml(xmlString);
+  summary.setRegistro(numReferencia);
+  const htmlString = fillWithData(summary);
+  const htmlStringStyled = replaceStyle(htmlString, renderStylesheet());
+  return htmlStringStyled;
+}
+
+
+export { getPDFFromXml, getPDFFromXmlString, getHtmlFromXmlString };
