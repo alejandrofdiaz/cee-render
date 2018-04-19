@@ -11,9 +11,12 @@ $f_color: #e07527;
 $g_color: #e32f28;
 
 @import './_eulogo';
+@import './_font';
+
+@include font();
 
 * {
-  font-family: 'Arial Condensed', 'Arial Narrow', 'Arial';
+  font-family: 'PT Sans Narrow', 'Arial Condensed', 'Arial Narrow', 'Arial';
 }
 @page {
   margin: 0;
@@ -148,7 +151,15 @@ body {
     height: 135mm;
   }
 
+  //--CHART--//
+
+  $main-font-height: 12mm;
+  $main-font-padding: $main-font-height * 0.1;
+  $main-radius: $main-font-height * 0.2;
+
   &__chart {
+    border-spacing: 10px;
+
     padding: 0 2.5mm;
     width: 100%;
     &__header {
@@ -169,50 +180,43 @@ body {
         }
       }
     }
-    &__row {
-      > td {
-        padding: 0;
-        height: 14.5mm;
-        &:first-child {
-          border-radius: 2mm;
-        }
-        &:not(:last-child) {
-          border-right: 1.75mm solid $gray_1;
-        }
-      }
-      &:not(:last-child) {
-        > td {
-          border-bottom: 2.8mm solid $gray_1;
-        }
-      }
-      background-color: white;
-    }
     &__cell {
+      padding: 0;
+
       text-align: right;
       position: relative;
+      background-color: white;
+
+      &--ribbon {
+        border-top-left-radius: $main-radius;
+        border-bottom-left-radius: $main-radius;
+      }
+
+      &--result {
+        border-top-right-radius: $main-radius;
+        border-bottom-right-radius: $main-radius;
+      }
     }
     &__result {
-      $resultFontSize: 10.5mm;
       font-weight: bolder;
-      $height: (14.5mm - 1mm);
+      $height: $main-font-padding * 2 + $main-font-height;
       position: relative;
-      font-size: $resultFontSize;
-      padding: 1mm 2mm;
-      border-top-right-radius: 2mm;
-      border-bottom-right-radius: 2mm;
+      font-size: $main-font-height;
+      line-height: $main-font-height;
+      padding: $main-font-padding 0.2em;
+      border-top-right-radius: $main-radius;
+      border-bottom-right-radius: $main-radius;
       background-color: #000000;
       color: white;
       display: inline-block;
       width: calc(100% - #{$height/1.5});
       text-align: right;
-      margin-right: 1mm;
       &::before {
         content: ' ';
         position: absolute;
         top: 0;
-        left: ($height/4)*-1;
+        left: ($height/4) * -1;
         width: 0;
-        height: 0;
         border-top: ($height/2) solid transparent;
         border-bottom: ($height/2) solid transparent;
         border-right: ($height/4) solid #000000;
@@ -221,14 +225,19 @@ body {
   }
 
   &__ribbon {
+    $height: $main-font-padding * 2 + $main-font-height;
+
     $max-width: 102mm;
     position: relative;
-    border-top-left-radius: 2mm;
-    border-bottom-left-radius: 2mm;
+    border-top-left-radius: $main-radius;
+    border-bottom-left-radius: $main-radius;
     color: white;
     height: 100%;
     max-width: $max-width;
-    padding: 0mm 0 0 4.5mm;
+    padding: $main-font-padding 0 $main-font-padding .3em;
+
+    font-size: $main-font-height;
+    line-height: $main-font-height;
 
     display: flex;
     align-items: baseline;
@@ -241,22 +250,21 @@ body {
     }
     &__title {
       text-transform: uppercase;
-      font-size: 12.5mm;
       font-weight: bold;
     }
     &__subtitle {
-      margin-left: 1mm;
+      $subtitle-font-size: .4em;
+      margin-left: .5em;
       text-transform: lowercase;
-      font-size: 4.2mm;
+      line-height: $subtitle-font-size;
+      font-size: $subtitle-font-size;
     }
 
     &::after {
-      $height: 14.5mm;
-      content: ' ';
+      content: '';
       position: absolute;
-      right: ($height/2)*-1;
-      width: 0;
-      height: 0;
+      right: ($height/2) * -1;
+      top: 0;
       border-top: ($height/2) solid transparent;
       border-bottom: ($height/2) solid transparent;
       border-left: ($height/2) solid red;
