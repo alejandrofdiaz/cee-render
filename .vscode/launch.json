@@ -15,6 +15,16 @@
       "internalConsoleOptions": "openOnSessionStart"
     },
     {
+      "name": "Test Server",
+      "type": "node",
+      "request": "launch",
+      "args": ["${workspaceRoot}/dev.ts"],
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "Jest Tests",
