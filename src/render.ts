@@ -14,8 +14,13 @@ async function render(html: string, filename: string, stylesheet: string, destin
   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
   const page = await browser.newPage();
   await page.emulateMedia('screen');
-  await page.setContent(html);
-  await page.addStyleTag({ content: stylesheet });
+  await page.setContent(replaceStyle(html, stylesheet));
+  /**
+   * WORKARAOUNDED:
+   * addStyleTag have to wait until browser loads base64 font src and does not right now.
+   * So base64 data is attached since setContent method.
+   */
+  // await page.addStyleTag({ content: stylesheet});
   const _filename = new Buffer(`${filename},${new Date().toString()}`).toString('base64');
   const pdfAbsolutePath = path.resolve(destination, `${_filename}.pdf`);
   await page.pdf({
