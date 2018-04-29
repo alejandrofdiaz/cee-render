@@ -1,18 +1,14 @@
-import { renderSync } from 'node-sass';
 import * as path from 'path';
+import * as fs from 'fs';
 
-const STYLESHEET_PATH = '_etiquetaEnergetica.scss';
+const STYLESHEET_PATH = 'build/style/etiquetaEnergetica.css';
 
 /**
- * Renders stylesheets and returns it as string.
+ * Reads and returns it as string.
  * @returns {string}
  */
 function renderStylesheet() {
-  const result = renderSync({
-    file: path.resolve(__dirname, STYLESHEET_PATH),
-    outputStyle: 'compressed'
-  });
-  return result.css.toString();
+  return fs.readFileSync(path.resolve(process.cwd(), STYLESHEET_PATH), 'utf-8');
 }
 
 export { renderStylesheet };

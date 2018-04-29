@@ -10,8 +10,7 @@ $e_color: #efb51d;
 $f_color: #e07527;
 $g_color: #e32f28;
 
-@import './_eulogo';
-@import './_font';
+@import './font/_font';
 
 @include font();
 
@@ -234,7 +233,7 @@ body {
     color: white;
     height: 100%;
     max-width: $max-width;
-    padding: $main-font-padding 0 $main-font-padding .3em;
+    padding: $main-font-padding 0 $main-font-padding 0.3em;
 
     font-size: $main-font-height;
     line-height: $main-font-height;
@@ -253,8 +252,8 @@ body {
       font-weight: bold;
     }
     &__subtitle {
-      $subtitle-font-size: .4em;
-      margin-left: .5em;
+      $subtitle-font-size: 0.4em;
+      margin-left: 0.5em;
       text-transform: lowercase;
       line-height: $subtitle-font-size;
       font-size: $subtitle-font-size;
@@ -357,7 +356,7 @@ body {
       top: 0;
       width: 13.3mm;
       height: 10mm;
-      @include eulogo();
+      background-image: url('./assets/eulogo.jpg');
       background-size: contain;
     }
   }
