@@ -15,6 +15,9 @@
     "sass": "rimraf ./build && gulp sass",
     "dev": "gulp dev & ts-node dev.ts"
   },
+  "engines": {
+    "node": ">=8.9.1"
+  },
   "keywords": [
     "TS",
     "Javascript",
