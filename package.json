@@ -5,9 +5,10 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
+    "pretest": "npm run sass",
     "test": "jest",
-    "test:verbose": "jest --verbose",
-    "test:watch": "jest --watchAll",
+    "test:verbose": "npm run sass && jest --verbose",
+    "test:watch": "npm run sass && jest --watchAll",
     "build": "npm run test && rimraf ./build && gulp",
     "prepare": "npm run build",
     "publish:server": "npm publish",
