@@ -1,0 +1,6 @@
+@mixin font() {
+  @font-face {
+    font-family: 'PT Sans Narrow';
+    src: url('./font/PT_Sans-Narrow-Web-Regular.ttf');
+  }
+}

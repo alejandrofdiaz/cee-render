@@ -5,18 +5,17 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
+    "pretest": "npm run sass",
     "test": "jest",
-    "test:verbose": "jest --verbose",
-    "test:watch": "jest --watchAll",
+    "test:verbose": "npm run sass && jest --verbose",
+    "test:watch": "npm run sass && jest --watchAll",
     "build": "npm run test && rimraf ./build && gulp",
     "prepare": "npm run build",
-    "publish:server": "npm publish"
+    "publish:server": "npm publish",
+    "sass": "rimraf ./build && gulp sass",
+    "dev": "gulp dev & ts-node dev.ts"
   },
-  "keywords": [
-    "TS",
-    "Javascript",
-    "npm"
-  ],
+  "keywords": ["TS", "Javascript", "npm"],
   "author": "Alejandro Frías",
   "license": "MIT",
   "repository": {
@@ -31,7 +30,6 @@
     "@types/jest": "^22.2.2",
     "@types/lodash": "^4.14.106",
     "@types/node": "^9.6.2",
-    "@types/node-sass": "^3.10.32",
     "@types/puppeteer": "^1.2.1",
     "@types/xml-js": "^1.0.0",
     "babel-core": "^6.26.0",
@@ -39,14 +37,19 @@
     "babel-plugin-transform-remove-console": "^6.9.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-minify": "^0.4.0",
+    "cssnano": "^3.10.0",
     "express": "^4.16.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-typescript": "^4.0.2",
     "jest": "^22.4.3",
     "lodash": "^4.17.5",
     "merge2": "^1.2.1",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-url": "^7.3.2",
     "rimraf": "^2.6.2",
     "ts-jest": "^22.4.2",
     "ts-node": "^6.0.0",
@@ -58,17 +61,9 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "dependencies": {
-    "node-sass": "^4.8.3",
     "puppeteer": "^1.2.0",
     "xml-js": "^1.6.2"
   }
