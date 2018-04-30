@@ -3,201 +3,213 @@
       lang="es">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible"
-	      content="IE=edge,chrome=1">
-	<title></title>
-	<meta name="description"
-	      content="Etiqueta Energética">
+    <meta charset="utf-8">
+    <title>Etiqueta Energética</title>
+    <meta name="description"
+          content="Etiqueta Energética">
 </head>
 
 <body>
-	<article class="ee">
-		<main class="ee__wrapper">
-			<h1 class="ee__title">Calificación energética</h1>
-			<h2 class="ee__subtitle">del Edificio Terminado
-				<span class="ee__subtitle--appendix">etiqueta</span>
-			</h2>
-			<div class="ee__main-data ee__data">
-				<h3 class="ee__data__title">Datos del edificio</h3>
-				<div class="ee__form--container">
-					<form class="ee__form ee__form--left">
-						<div class="ee__v-group">
-							<h1>Normativa vigente</h1>
-							<h2>construcción / rehabilitación</h2>
-							<div class="ee__field ee__field--double">{{datosEdificio}}</div>
-						</div>
-						<div class="ee__v-group">
-							<h1>Referencia/s catastral/es</h1>
-							<div class="ee__field">{{referenciaCatastral}}</div>
-						</div>
-					</form>
-					<form class="ee__form ee__form--right">
-						<div class="ee__i-group">
-							<h1>Tipo de edificio</h1>
-							<div class="ee__field">{{tipoEdificio}}</div>
-						</div>
-						<div class="ee__i-group">
-							<h1>Dirección</h1>
-							<div class="ee__field">{{direccion}}</div>
-						</div>
-						<div class="ee__i-group">
-							<h1>Municipio</h1>
-							<div class="ee__field">{{municipio}}</div>
-						</div>
-						<div class="ee__i-group">
-							<h1>C.P.</h1>
-							<div class="ee__field">{{cp}}</div>
-						</div>
-						<div class="ee__i-group">
-							<h1>C. Autónoma</h1>
-							<div class="ee__field">{{comunidadAutonoma}}</div>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="ee__secondary-data ee__data">
-				<table class="ee__chart">
-					<thead>
-						<tr>
-							<th class="ee__chart__header ee__chart__header--main">Escala de la calificación energética</th>
-							<th class="ee__chart__header ee__chart__header--secondary">
-								Consumo de energía kW h / m
-								<sup>2</sup> año
-							</th>
-							<th class="ee__chart__header ee__chart__header--secondary">
-								<p>Emisiones</p>
-								<p>
-									kg CO
-									<sub>2</sub> / m
-									<sup>2</sup> año
-								</p>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="ee__chart__row">
-							<td class="ee__chart__cell ee__chart__cell--ribbon">
-								<div class="ee__ribbon ee__ribbon__a">
-									<span class="ee__ribbon__title">A</span>
-									<span class="ee__ribbon__subtitle">más eficiente</span>
-								</div>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{consumoEnergiaA}}</span>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{emisionesCO2A}}</span>
-							</td>
-						</tr>
-						<tr class="ee__chart__row">
-							<td class="ee__chart__cell ee__chart__cell--ribbon">
-								<div class="ee__ribbon ee__ribbon__b">
-									<span class="ee__ribbon__title">B</span>
-								</div>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{consumoEnergiaB}}</span>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{emisionesCO2B}}</span>
-							</td>
-						</tr>
-						<tr class="ee__chart__row">
-							<td class="ee__chart__cell ee__chart__cell--ribbon">
-								<div class="ee__ribbon ee__ribbon__c">
-									<span class="ee__ribbon__title">C</span>
-								</div>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{consumoEnergiaC}}</span>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{emisionesCO2C}}</span>
-							</td>
-						</tr>
-						<tr class="ee__chart__row">
-							<td class="ee__chart__cell ee__chart__cell--ribbon">
-								<div class="ee__ribbon ee__ribbon__d">
-									<span class="ee__ribbon__title">D</span>
-								</div>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{consumoEnergiaD}}</span>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{emisionesCO2D}}</span>
-							</td>
-						</tr>
-						<tr class="ee__chart__row">
-							<td class="ee__chart__cell ee__chart__cell--ribbon">
-								<div class="ee__ribbon ee__ribbon__e">
-									<span class="ee__ribbon__title">E</span>
+    <article class="ee">
+        <main class="ee__wrapper">
+            <h1 class="ee__title">Calificación energética</h1>
+            <h2 class="ee__subtitle">del Edificio Terminado
+                <span class="ee__subtitle--appendix">etiqueta</span>
+            </h2>
+            <div class="ee__main-data ee__data">
+                <h3 class="ee__data__title">Datos del edificio</h3>
+                <div class="ee__form--container">
+                    <form class="ee__form ee__form--left">
+                        <div class="ee__v-group">
+                            <h1>Normativa vigente</h1>
+                            <h2>construcción / rehabilitación</h2>
+                            <div class="ee__field ee__field--double">{{datosEdificio}}</div>
+                        </div>
+                        <div class="ee__v-group">
+                            <h1>Referencia/s catastral/es</h1>
+                            <div class="ee__field">{{referenciaCatastral}}</div>
+                        </div>
+                    </form>
+                    <form class="ee__form ee__form--right">
+                        <div class="ee__i-group">
+                            <h1>Tipo de edificio</h1>
+                            <div class="ee__field">{{tipoEdificio}}</div>
+                        </div>
+                        <div class="ee__i-group">
+                            <h1>Dirección</h1>
+                            <div class="ee__field">{{direccion}}</div>
+                        </div>
+                        <div class="ee__i-group">
+                            <h1>Municipio</h1>
+                            <div class="ee__field">{{municipio}}</div>
+                        </div>
+                        <div class="ee__i-group">
+                            <h1>C.P.</h1>
+                            <div class="ee__field">{{cp}}</div>
+                        </div>
+                        <div class="ee__i-group">
+                            <h1>C. Autónoma</h1>
+                            <div class="ee__field">{{comunidadAutonoma}}</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="ee__secondary-data ee__data">
+                <table class="ee__chart">
+                    <thead>
+                        <tr>
+                            <th class="ee__chart__header ee__chart__header--main">Escala de la calificación energética</th>
+                            <th class="ee__chart__header ee__chart__header--secondary">
+                                Consumo de energía kW h / m
+                                <sup>2</sup> año
+                            </th>
+                            <th class="ee__chart__header ee__chart__header--secondary">
+                                <p>Emisiones</p>
+                                <p>
+                                    kg CO
+                                    <sub>2</sub> / m
+                                    <sup>2</sup> año
+                                </p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="ee__chart__row">
+                            <td class="ee__chart__cell ee__chart__cell--ribbon">
+                                <div class="ee__ribbon ee__ribbon__a">
+                                    <span class="ee__ribbon__title">A</span>
+                                    <span class="ee__ribbon__subtitle">más eficiente</span>
+                                </div>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{consumoEnergiaA}}"></span>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{emisionesCO2A}}"></span>
+                            </td>
+                        </tr>
+                        <tr class="ee__chart__row">
+                            <td class="ee__chart__cell ee__chart__cell--ribbon">
+                                <div class="ee__ribbon ee__ribbon__b">
+                                    <span class="ee__ribbon__title">B</span>
+                                </div>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{consumoEnergiaB}}"></span>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{emisionesCO2B}}"></span>
+                            </td>
+                        </tr>
+                        <tr class="ee__chart__row">
+                            <td class="ee__chart__cell ee__chart__cell--ribbon">
+                                <div class="ee__ribbon ee__ribbon__c">
+                                    <span class="ee__ribbon__title">C</span>
+                                </div>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{consumoEnergiaC}}"></span>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{emisionesCO2C}}"></span>
+                            </td>
+                        </tr>
+                        <tr class="ee__chart__row">
+                            <td class="ee__chart__cell ee__chart__cell--ribbon">
+                                <div class="ee__ribbon ee__ribbon__d">
+                                    <span class="ee__ribbon__title">D</span>
+                                </div>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{consumoEnergiaD}}"></span>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{emisionesCO2D}}"></span>
+                            </td>
+                        </tr>
+                        <tr class="ee__chart__row">
+                            <td class="ee__chart__cell ee__chart__cell--ribbon">
+                                <div class="ee__ribbon ee__ribbon__e">
+                                    <span class="ee__ribbon__title">E</span>
 
-								</div>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{consumoEnergiaE}}</span>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{emisionesCO2E}}</span>
-							</td>
-						</tr>
-						<tr class="ee__chart__row">
-							<td class="ee__chart__cell ee__chart__cell--ribbon">
-								<div class="ee__ribbon ee__ribbon__f">
-									<span class="ee__ribbon__title">F</span>
-								</div>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{consumoEnergiaF}}</span>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{emisionesCO2F}}</span>
-							</td>
-						</tr>
-						<tr class="ee__chart__row">
-							<td class="ee__chart__cell ee__chart__cell--ribbon">
-								<div class="ee__ribbon ee__ribbon__g">
-									<span class="ee__ribbon__title">G</span>
-									<span class="ee__ribbon__subtitle">menos eficiente</span>
-								</div>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{consumoEnergiaG}}</span>
-							</td>
-							<td class="ee__chart__cell ee__chart__cell--result">
-								<span class="ee__chart__result">{{emisionesCO2G}}</span>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="ee__signature-data ee__data">
-				<div class="ee__form--container">
-					<form class="ee__form ee__form--left">
-						<div class="ee__v-group">
-							<h1>REGISTRO</h1>
-							<div class="ee__field ee__field--triple">{{registro}}</div>
-						</div>
-					</form>
-					<form class="ee__form ee__form--right">
-						<div class="ee__v-group">
-							<h1 class="invisible">Firma</h1>
-							<div class="ee__field ee__field--right">{{fecha}}</div>
-						</div>
-						<h3 class="ee__signature-data__date">Válido hasta dd/mm/aaa</h3>
-					</form>
-				</div>
-			</div>
-			</div>
-			<footer class="ee__localization">
-				<h5 class="ee__localization__title">ESPAÑA</h5>
-				<h6 class="ee__localization__subtitle">Directiva 2010 / 31 / UE</h6>
-				<div class="ee__localization__flag"></div>
-			</footer>
-		</main>
-	</article>
+                                </div>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{consumoEnergiaE}}"></span>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{emisionesCO2E}}"></span>
+                            </td>
+                        </tr>
+                        <tr class="ee__chart__row">
+                            <td class="ee__chart__cell ee__chart__cell--ribbon">
+                                <div class="ee__ribbon ee__ribbon__f">
+                                    <span class="ee__ribbon__title">F</span>
+                                </div>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{consumoEnergiaF}}"></span>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{emisionesCO2F}}"></span>
+                            </td>
+                        </tr>
+                        <tr class="ee__chart__row">
+                            <td class="ee__chart__cell ee__chart__cell--ribbon">
+                                <div class="ee__ribbon ee__ribbon__g">
+                                    <span class="ee__ribbon__title">G</span>
+                                    <span class="ee__ribbon__subtitle">menos eficiente</span>
+                                </div>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{consumoEnergiaG}}"></span>
+                            </td>
+                            <td class="ee__chart__cell ee__chart__cell--result">
+                                <span class="ee__chart__result"
+                                      data-value="{{emisionesCO2G}}"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ee__signature-data ee__data">
+                <div class="ee__form--container">
+                    <form class="ee__form ee__form--left">
+                        <div class="ee__v-group">
+                            <h1>REGISTRO</h1>
+                            <div class="ee__field ee__field--triple">{{registro}}</div>
+                        </div>
+                    </form>
+                    <form class="ee__form ee__form--right">
+                        <div class="ee__v-group">
+                            <h1 class="invisible">Firma</h1>
+                            <div class="ee__field ee__field--right">{{fecha}}</div>
+                        </div>
+                        <h3 class="ee__signature-data__date">Válido hasta dd/mm/aaa</h3>
+                    </form>
+                </div>
+            </div>
+            </div>
+            <footer class="ee__localization">
+                <h5 class="ee__localization__title">ESPAÑA</h5>
+                <h6 class="ee__localization__subtitle">Directiva 2010 / 31 / UE</h6>
+                <div class="ee__localization__flag"></div>
+            </footer>
+        </main>
+    </article>
 </body>
 
 </html>

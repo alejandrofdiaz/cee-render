@@ -23,7 +23,6 @@ $g_color: #e32f28;
 
 body {
   background: white;
-
   @media print {
     margin: 0;
   }
@@ -220,6 +219,16 @@ body {
         border-bottom: ($height/2) solid transparent;
         border-right: ($height/4) solid #000000;
       }
+
+      &[data-value=""]{
+        display: none;
+      }
+
+      &::after{
+        content: attr(data-value);
+      }
+
+
     }
   }
 
