@@ -5,13 +5,15 @@ import { fillWithData } from './template/cee-template.utils';
 import render, { replaceStyle } from './render';
 
 /**
- * Method that build PDF retrieved to user from
+ * @description Method that build PDF retrieved to user from
  * data in a XML. All params are absolute paths.
  *
+ * @name getPDFFromXml
  * @param {string} xmlPath
  * @param {string} pdfDest
  * @param {string} numReferencia
- * @returns {string} path where to get the pdf built to send it to user
+ * @returns {string} path where to get the pdf built to send it to user, 
+ * default filename numReferencia.pdf
  */
 async function getPDFFromXml(xmlPath: string, pdfDest: string, numReferencia: string) {
   let xml;
@@ -24,13 +26,15 @@ async function getPDFFromXml(xmlPath: string, pdfDest: string, numReferencia: st
 }
 
 /**
- * Method that build PDF retrieved to user from
+ * @description Method that build PDF retrieved to user from
  * data in a string. All params are absolute paths.
  *
- * @param xmlString
- * @param pdfDest
- * @param numReferencia
+ * @name getPDFFromXmlString
+ * @param {string} xmlString
+ * @param {string} pdfDest
+ * @param {string} numReferencia
  * @returns {string} path where to get the pdf built to send it to user
+ * default filename ${numReferencia}.pdf
  */
 async function getPDFFromXmlString(
   xmlString: string,
@@ -47,8 +51,10 @@ async function getPDFFromXmlString(
 
 /**
  * @description Renders HTML from xml data
- * @param xmlString
- * @param numReferencia
+ * 
+ * @name getHtmlFromXmlString
+ * @param {string} xmlString
+ * @param {string} numReferencia
  * @returns {string} Html rendered with style
  */
 function getHtmlFromXmlString(xmlString: string, numReferencia: string): string {
