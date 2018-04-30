@@ -44,7 +44,7 @@ gulp.task('ts', function() {
     .pipe(
       babel({
         presets: ['babel-preset-env', 'babel-preset-minify'],
-        plugins: ['transform-remove-console', 'babel-plugin-lodash']
+        plugins: ['transform-remove-console']
       })
     )
     .pipe(sourcemaps.write(''));
