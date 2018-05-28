@@ -3,6 +3,8 @@
 
 [![npm version](https://badge.fury.io/js/cee-render.svg)](https://badge.fury.io/js/cee-render)
 
+[![NPM](https://nodei.co/npm/cee-render.png)](https://nodei.co/npm/cee-render/)
+
 ## Description
 
 Utility to render CEE ([Wtf is this?](https://www.certicalia.com/que-es-un-certificado-energetico)) document due to XML exported from CE3X.
