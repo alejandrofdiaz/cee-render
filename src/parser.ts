@@ -75,6 +75,7 @@ function parseDataFromSummary(xml: string) {
 
     try {
       summary.fecha = _xmlDataTree.DatosDelCertificador.Fecha._text;
+      summary.setFechaValidez();
     } catch (err) {
       console.log('error fecha');
     }
