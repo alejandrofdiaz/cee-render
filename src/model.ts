@@ -1,3 +1,5 @@
+const DEFAULT_VALIDITY_OFFSET = 10; //Years
+
 class SummaryCertificado {
   anio: string;
   calificacionEmisiones: string;
@@ -14,7 +16,10 @@ class SummaryCertificado {
   referenciaCatastral: string;
   registro: string;
   tipoEdificio: string;
-  constructor() {
+  _validityYears: number;
+  fechaValidez: string;
+  constructor(validity = DEFAULT_VALIDITY_OFFSET) {
+    this._validityYears = validity;
     this.anio = '';
     this.calificacionEmisiones = '';
     this.calificacionConsumoEnergia = '';
@@ -25,6 +30,7 @@ class SummaryCertificado {
     this.direccion = '';
     this.emisionesCO2 = '';
     this.fecha = '';
+    this.fechaValidez = '';
     this.municipio = '';
     this.normativa = '';
     this.referenciaCatastral = ''; //referencia catastral
@@ -41,6 +47,20 @@ class SummaryCertificado {
 		  Construccion - ${this.anio}
 		  ${this.normativa}
 		  `;
+  }
+
+  private generateValidityDate(date: string, validity: number = DEFAULT_VALIDITY_OFFSET) {
+    let [day, month, year] = date.split('/').map(value => +value);
+    year = year + validity;
+    month = month - 1;
+    return new Date(year, month, day);
+  }
+
+  setFechaValidez() {
+    if (!this.fecha) return '';
+    const date = this.generateValidityDate(this.fecha, this._validityYears);
+    const _dateString = [date.getDate(), date.getMonth() + 1, date.getFullYear()].join('/');
+    return (this.fechaValidez = _dateString);
   }
 
   setCalificacionSelectableValues() {
