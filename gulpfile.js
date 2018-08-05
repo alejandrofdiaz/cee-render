@@ -8,7 +8,6 @@ const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const cssnext = require('postcss-cssnext');
 const postcssUrl = require('postcss-url');
-const cssnano = require('cssnano');
 
 gulp.task('assets', function() {
   return gulp.src(['src/**/*.html']).pipe(gulp.dest('build'));
@@ -28,14 +27,6 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./build/style'));
 });
 
-gulp.task('sass:prod', function() {
-  return gulp
-    .src('src/style/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([cssnext(), postcssUrl({ url: 'inline' }), cssnano()]))
-    .pipe(gulp.dest('./build/style'));
-});
-
 gulp.task('ts', function() {
   const result = gulp.src(['src/**/*.ts', '!src/**/__tests__/*.ts']).pipe(tsProject());
 
@@ -43,7 +34,7 @@ gulp.task('ts', function() {
     .pipe(sourcemaps.init())
     .pipe(
       babel({
-        presets: ['babel-preset-env', 'babel-preset-minify'],
+        presets: ['babel-preset-env'],
         plugins: ['transform-remove-console']
       })
     )
@@ -53,7 +44,7 @@ gulp.task('ts', function() {
   return merge([resultJs.pipe(gulp.dest('build')), resultDts.pipe(gulp.dest('build'))]);
 });
 
-gulp.task('default', ['ts', 'assets', 'sass:prod']);
+gulp.task('default', ['ts', 'assets', 'sass']);
 
 gulp.task('dev', () => {
   gulp.watch('src/style/**/*', ['sass']);
