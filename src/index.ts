@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import parserFromXml from './parser';
-import { renderStylesheet } from './style/stylesheet.utils';
+import Stylesheet from './style/stylesheet.utils';
 import { fillWithData } from './template/cee-template.utils';
 import render, { replaceStyle } from './render';
 
@@ -12,7 +12,7 @@ import render, { replaceStyle } from './render';
  * @param {string} xmlPath
  * @param {string} pdfDest
  * @param {string} numReferencia
- * @returns {string} path where to get the pdf built to send it to user, 
+ * @returns {string} path where to get the pdf built to send it to user,
  * default filename numReferencia.pdf
  */
 async function getPDFFromXml(xmlPath: string, pdfDest: string, numReferencia: string) {
@@ -45,13 +45,13 @@ async function getPDFFromXmlString(
   const summary = parserFromXml(xmlString);
   summary.setRegistro(numReferencia);
   const htmlString = fillWithData(summary);
-  const pdfFilePath = await render(htmlString, numReferencia, renderStylesheet(), pdfDest);
+  const pdfFilePath = await render(htmlString, numReferencia, Stylesheet.getStylesheet(), pdfDest);
   return pdfFilePath;
 }
 
 /**
  * @description Renders HTML from xml data
- * 
+ *
  * @name getHtmlFromXmlString
  * @param {string} xmlString
  * @param {string} numReferencia
@@ -61,9 +61,8 @@ function getHtmlFromXmlString(xmlString: string, numReferencia: string): string 
   const summary = parserFromXml(xmlString);
   summary.setRegistro(numReferencia);
   const htmlString = fillWithData(summary);
-  const htmlStringStyled = replaceStyle(htmlString, renderStylesheet());
+  const htmlStringStyled = replaceStyle(htmlString, Stylesheet.getStylesheet());
   return htmlStringStyled;
 }
-
 
 export { getPDFFromXml, getPDFFromXmlString, getHtmlFromXmlString };
